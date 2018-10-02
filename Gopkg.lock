@@ -311,7 +311,8 @@
   revision = "99c5fa21f87204c2875a7f7ba977895d79b35c44"
 
 [[projects]]
-  digest = "1:080984cfdf56f28efa5e90a6c7405c824631e08bd7eca29e5c4d1156989339fe"
+  branch = "release-9.0"
+  digest = "1:45daa6f27ea4e53fb9bc799c1b0792f14ec04e14b59f7628956ff59745c46d93"
   name = "k8s.io/client-go"
   packages = [
     "pkg/apis/clientauthentication",
@@ -335,10 +336,10 @@
     "util/integer",
   ]
   pruneopts = "UT"
-  revision = "20034be4022801a0663ef4c89449321cbcdfbb23"
-  version = "kubernetes-1.12.0-beta.2"
+  revision = "3e32c8333043fc2c058455f4d32986a89d31b05b"
 
 [[projects]]
+  branch = "release-1.12"
   digest = "1:500bfa969932731e4e7abb5ede14e169fba62187d4b9d2ef8e052a9341055bee"
   name = "k8s.io/metrics"
   packages = [
@@ -349,8 +350,7 @@
     "pkg/client/clientset/versioned/typed/metrics/v1beta1",
   ]
   pruneopts = "UT"
-  revision = "1040768fc15d11b6be5a9a00a8f77bec11095ad0"
-  version = "kubernetes-1.12.0-beta.2"
+  revision = "c6bb70553a8287cd6451211dd366fee12e088b95"
 
 [solve-meta]
   analyzer-name = "dep"
