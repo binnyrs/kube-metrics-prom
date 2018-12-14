@@ -1,8 +1,7 @@
-FROM golang:1.11.0-stretch AS builder
-RUN go get -u github.com/golang/dep/cmd/dep
-WORKDIR $GOPATH/src/github.com/bmcstdio/kube-metrics-prom/
+FROM golang:1.11.2 AS builder
+WORKDIR /src
 COPY . .
-RUN dep ensure -v
+RUN go mod download
 RUN CGO_ENABLED=0 go build \
     -a \
     -v \
@@ -11,7 +10,6 @@ RUN CGO_ENABLED=0 go build \
     -installsuffix=netgo \
     -o=/kube-metrics-prom ./cmd/main.go
 
-FROM alpine:3.8
-RUN apk add -U ca-certificates
+FROM gcr.io/distroless/base
 COPY --from=builder /kube-metrics-prom /usr/local/bin/kube-metrics-prom
 CMD ["kube-metrics-prom", "-h"]
